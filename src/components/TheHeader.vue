@@ -31,15 +31,23 @@
           </div>
         </li>
       </ul>
+      <strong class="navbar-text ml-5">Funds: {{ funds }}</strong>
     </div>
   </nav>
 </template>
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: '',
   data() {
     return {}
   },
+  computed: {
+    ...mapState('portfolio', [
+      'funds'
+    ])
+  }
 }
 </script>
 <style></style>

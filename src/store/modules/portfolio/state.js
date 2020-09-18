@@ -1,4 +1,4 @@
 export default {
-  funds: 1000,
+  funds: 10000,
   stocks: []
 }
