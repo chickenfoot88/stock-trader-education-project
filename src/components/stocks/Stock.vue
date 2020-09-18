@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <div class="card-header" style="background-color: #ddf0d7;">
+    <div class="card-header" :style="{ backgroundColor: stock.quantity ? '#d7edf6' : '#ddf0d7' }">
       <span class="card-title">{{ stock.name }}</span>
       <small>(Price: {{ stock.price / 100 }})</small>
       <small v-if="stock.quantity"> | Quantity: {{ stock.quantity }})</small>
@@ -12,7 +12,7 @@
         </div>
         <button
           v-if="stock.quantity"
-          class="btn btn-success ml-5"
+          class="btn btn-primary ml-5"
           @click="sellStock"
           :disabled="isBuyButtonDisabled"
         >Sell</button>
