@@ -9,6 +9,7 @@
 </template>
 <script>
 import Stock from '@/components/stocks/Stock'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'StocksPage',
@@ -16,31 +17,13 @@ export default {
     Stock,
   },
   data() {
-    return {
-      stocks: [
-        {
-          id: 1,
-          name: 'AMD',
-          price: 7655,
-        },
-        {
-          id: 2,
-          name: 'INTC',
-          price: 5032,
-        },
-        {
-          id: 3,
-          name: 'NVDA',
-          price: 49854,
-        },
-        {
-          id: 4,
-          name: 'TSLA',
-          price: 42343,
-        },
-      ],
-    }
+    return {}
   },
+  computed: {
+    ...mapGetters('stocks', {
+      stocks: 'stocks'
+    })
+  }
 }
 </script>
 <style></style>
