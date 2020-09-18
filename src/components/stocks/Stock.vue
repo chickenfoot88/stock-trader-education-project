@@ -14,7 +14,6 @@
           v-if="stock.quantity"
           class="btn btn-primary ml-5"
           @click="sellStock"
-          :disabled="isBuyButtonDisabled"
         >Sell</button>
         <button
           v-else
@@ -58,7 +57,7 @@ export default {
     buyStock() {
       const order = {
         stockId: this.stock.id,
-        stockPrise: this.stock.price,
+        stockPrice: this.stock.price,
         quantity: this.quantity,
       }
       this.buyStockAction(order)
@@ -68,7 +67,7 @@ export default {
     sellStock() {
       const order = {
         stockId: this.stock.id,
-        stockPrise: this.stock.price,
+        stockPrice: this.stock.price,
         quantity: this.quantity,
       }
       this.sellStockAction(order)
