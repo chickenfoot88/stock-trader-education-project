@@ -1,13 +1,13 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <router-link :to="{ name: 'Home' }" class="navbar-brand">Stock Trader</router-link>
+    <router-link :to="{ name: 'HomePage' }" class="navbar-brand">Stock Trader</router-link>
 
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav">
-        <router-link :to="{ name: 'Portfolio' }" tag="li" active-class="active" class="nav-item">
+        <router-link :to="{ name: 'PortfolioPage' }" tag="li" active-class="active" class="nav-item">
           <a class="nav-link">Portfolio</a>
         </router-link>
-        <router-link :to="{ name: 'Stocks' }" tag="li" active-class="active" class="nav-item">
+        <router-link :to="{ name: 'StocksPage' }" tag="li" active-class="active" class="nav-item">
           <a class="nav-link">Stocks</a>
         </router-link>
       </ul>
