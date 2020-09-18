@@ -10,8 +10,7 @@ export default {
         stockPrice
       })
     }
-    
-    state.funds -= stockPrice * quantity
+    state.funds -= ((stockPrice / 10) * quantity)
   },
   
   'SELL_STOCK'(state, { stockId, quantity, stockPrice }) {
@@ -21,7 +20,7 @@ export default {
     } else {
       const recordIndex = state.stocks.indexOf(record)
       state.stocks.splice(recordIndex, 1)
-      state.funds += stockPrice * quantity
+      state.funds += (stockPrice / 10) * quantity
     }
   }
 }
