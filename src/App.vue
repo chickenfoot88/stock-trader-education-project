@@ -1,7 +1,9 @@
 <template>
   <div>
     <the-header />
-    <router-view />
+    <transition name="slide-vertical" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 <script>
@@ -13,4 +15,34 @@ export default {
   },
 }
 </script>
-<style></style>
+<style>
+.slide-vertical-enter-active {
+  animation: slide-down .3s ease-out;
+}
+
+.slide-vertical-leave-active {
+  animation: slide-up .3s ease-out;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-100px);
+    opacity: .2;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100px);
+    opacity: .2;
+  }
+}
+</style>
