@@ -1,4 +1,4 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 
-Vue.user(VueResource)
+Vue.use(VueResource)
