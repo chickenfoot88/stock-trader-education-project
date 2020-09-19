@@ -13,7 +13,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">End day</a>
+          <a class="nav-link" @click="endDay">End day</a>
         </li>
         <li class="nav-item">
           <a 
@@ -36,7 +36,7 @@
   </nav>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: '',
@@ -47,6 +47,15 @@ export default {
     ...mapGetters('portfolio', [
       'funds'
     ])
+  },
+  methods: {
+    ...mapActions('stocks', {
+      randomizeStocks: 'RANDOMIZE_STOCKS'
+    }),
+
+    endDay() {
+      this.randomizeStocks()
+    }
   }
 }
 </script>
