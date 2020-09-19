@@ -31,7 +31,7 @@
           </div>
         </li>
       </ul>
-      <strong class="navbar-text ml-5">Funds: {{ funds }}</strong>
+      <strong class="navbar-text ml-5">Funds: {{ funds | dollarSign }}</strong>
     </div>
   </nav>
 </template>
