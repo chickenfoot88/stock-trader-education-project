@@ -12,5 +12,5 @@ export default {
     })
   },
 
-  funds: state => state.funds
+  funds: state => Math.floor(state.funds)
 }
