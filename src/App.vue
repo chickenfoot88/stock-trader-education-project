@@ -17,17 +17,17 @@ export default {
 </script>
 <style>
 .slide-vertical-enter-active {
-  animation: slide-down .3s ease-out;
+  animation: slide-down 0.3s ease-out;
 }
 
 .slide-vertical-leave-active {
-  animation: slide-up .3s ease-out;
+  animation: slide-up 0.3s ease-out;
 }
 
 @keyframes slide-down {
   from {
     transform: translateY(-100px);
-    opacity: .2;
+    opacity: 0.2;
   }
   to {
     transform: translateY(0);
@@ -42,7 +42,7 @@ export default {
   }
   to {
     transform: translateY(-100px);
-    opacity: .2;
+    opacity: 0.2;
   }
 }
 </style>
