@@ -22,5 +22,10 @@ export default {
       state.stocks.splice(recordIndex, 1)
       state.funds += (stockPrice / 100) * quantity
     }
+  },
+
+  'SET_PORTFOLIO_DATA'(state, { funds, stockPortfolio }) {
+    state.funds = funds
+    state.stocks = stockPortfolio
   }
 }

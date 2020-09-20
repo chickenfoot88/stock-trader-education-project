@@ -8,11 +8,30 @@
 </template>
 <script>
 import TheHeader from '@/components/TheHeader'
+import { mapActions } from 'vuex'
 
 export default {
   components: {
     TheHeader,
   },
+  async created() {
+    await this.fetchStocks()
+    this.loadData()
+  },
+  methods: {
+    ...mapActions('stocks', {
+      setStocks: 'SET_STOCKS',
+    }),
+
+    ...mapActions('portfolio', {
+      loadData: 'LOAD_DATA'
+    }),
+
+    async fetchStocks() {
+      const { body } = await this.$http.get('stocks.json')
+      this.setStocks(body)
+    },
+  }
 }
 </script>
 <style>

@@ -16,7 +16,7 @@
           <a class="nav-link">Stocks</a>
         </router-link>
       </ul>
-      <a class="nav-link ml-auto navbar-text" @click="endDay">End day</a>
+      <a class="nav-link ml-auto navbar-text" @click="endDay" style="cursor: pointer;">End day</a>
       <div class="dropdown">
         <a
           class="nav-link dropdown-toggle navbar-text"
@@ -32,8 +32,8 @@
           :class="{ show: isDropdownOpen }"
           aria-labelledby="navbarDropdown"
         >
-          <a class="dropdown-item" href="#">Save Data</a>
-          <a class="dropdown-item" href="#">Load Data</a>
+          <a class="dropdown-item" href="#" @click="saveData">Save Data</a>
+          <a class="dropdown-item" href="#" @click="loadData">Load Data</a>
         </div>
       </div>
       <strong class="navbar-text ml-5">Funds: {{ funds | dollarSign }}</strong>
@@ -51,15 +51,29 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('portfolio', ['funds']),
+    ...mapGetters('portfolio', [ 'funds', 'stockPortfolio' ]),
+    ...mapGetters('stocks', [ 'stocks' ]),
   },
   methods: {
     ...mapActions('stocks', {
       randomizeStocks: 'RANDOMIZE_STOCKS',
     }),
 
+    ...mapActions('portfolio', {
+      loadData: 'LOAD_DATA'
+    }),
+
     endDay() {
       this.randomizeStocks()
+    },
+
+    saveData() {
+      const data = {
+        funds: this.funds,
+        stockPortfolio: this.stockPortfolio
+      }
+      this.$http.put('data.json', data)
+      this.$http.put('stocks.json', this.stocks)
     },
   },
 }
