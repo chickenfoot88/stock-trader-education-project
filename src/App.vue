@@ -1,6 +1,11 @@
 <template>
   <div>
     <the-header />
+    <div
+      v-if="error.length"
+      class="alert alert-danger"
+      role="alert"
+    >{{ error }}</div>
     <transition name="slide-vertical" mode="out-in">
       <router-view />
     </transition>
@@ -8,13 +13,33 @@
 </template>
 <script>
 import TheHeader from '@/components/TheHeader'
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   components: {
     TheHeader,
   },
+  data() {
+    return {
+      error: '',
+    }
+  },
+  computed: {
+    ...mapState('auth', ['user']),
+
+    isUserExist() {
+      return this.user.localId
+    },
+  },
   async created() {
+    if (!this.isUserExist) {
+      try {
+        await this.signInAnon()
+      } catch (error) {
+        this.error = 'An error occurred. Please, try again later.'
+      }
+    }
+
     await this.fetchStocks()
     this.loadData()
   },
@@ -24,14 +49,19 @@ export default {
     }),
 
     ...mapActions('portfolio', {
-      loadData: 'LOAD_DATA'
+      loadData: 'LOAD_DATA',
+    }),
+
+    ...mapActions('auth', {
+      signInAnon: 'SIGN_IN_ANON',
+      refreshToken: 'REFRESH_TOKEN',
     }),
 
     async fetchStocks() {
       const { body } = await this.$http.get('stocks.json')
       this.setStocks(body)
     },
-  }
+  },
 }
 </script>
 <style>
