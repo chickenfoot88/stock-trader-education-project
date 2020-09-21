@@ -20,8 +20,9 @@ export default {
     } else {
       const recordIndex = state.stocks.indexOf(record)
       state.stocks.splice(recordIndex, 1)
-      state.funds += (stockPrice / 100) * quantity
     }
+  
+    state.funds += (stockPrice / 100) * quantity
   },
 
   'SET_PORTFOLIO_DATA'(state, { funds, stockPortfolio }) {
