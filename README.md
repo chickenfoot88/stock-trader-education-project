@@ -1,5 +1,8 @@
 # stock-trader-education-project
 
+## Project description
+Vue.js & Firebase app created along with Maximilian Schwarzmüller "Vue - The Complete Guide (w/ Router, Vuex, Composition API)" udemy [course](https://www.udemy.com/course/vuejs-2-the-complete-guide/)
+
 ## Project setup
 ```
 npm install
