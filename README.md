@@ -3,6 +3,13 @@
 ## Project description
 Vue.js & Firebase app created along with Maximilian Schwarzmüller "Vue - The Complete Guide (w/ Router, Vuex, Composition API)" udemy [course](https://www.udemy.com/course/vuejs-2-the-complete-guide/)
 
+
+#### Frontend
+Vue.js, Vuex, vue-router, Bootstrap
+
+#### Backend
+Firebase Realtime DB, Firebas Authentication
+
 ## Project setup
 ```
 npm install
